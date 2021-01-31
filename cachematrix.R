@@ -21,14 +21,26 @@
 ## setsolve: get the solved inverse matrix 
 
 makeCacheMatrix <- function(x = matrix()) {
+  # create cached solved matrix variable
   s<- NULL
+  
+  # set the original matrix
+  # clear the cached solved matrix
   set <- function(y) {
     x<<- y
     s<<- NULL
   }
+  
+  # get the cached original matrix
   get <- function() x
+  
+  # set the solved inverse matrix
   setsolve <- function(solved) s<<- solved
+  
+  # get the cached solved matrix
   getsolve <- function() s
+  
+  #list available functions
   list(set = set, 
        get = get, 
        getsolve = getsolve, 
@@ -59,5 +71,6 @@ cacheSolve <- function(x, ...) {
     message("getting cached data")
   }
   
+  # show the result
   return(s)
 }
